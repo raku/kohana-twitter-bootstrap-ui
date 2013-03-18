@@ -15,8 +15,7 @@ class Bootstrap_Helper_Element extends Bootstrap_Abstract {
 	 */
 	public function pull_left()
 	{
-		$this->_attributes['class'][] = Bootstrap_Helper_Element::PULL_LEFT;
-		return $this;
+		return $this->attributes('class', Bootstrap_Helper_Element::PULL_LEFT);
 	}
 	
 	/**
@@ -25,7 +24,6 @@ class Bootstrap_Helper_Element extends Bootstrap_Abstract {
 	 */
 	public function pull_right()
 	{
-		$this->_attributes['class'][] = Bootstrap_Helper_Element::PULL_RIGHT;
-		return $this;
+		return $this->attributes('class', Bootstrap_Helper_Element::PULL_RIGHT);
 	}
 }
