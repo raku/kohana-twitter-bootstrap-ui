@@ -4,7 +4,7 @@
  * http://twitter.github.com/bootstrap/base-css.html#forms
  * @package    Twitter bootstrap/UI
  */
-class Bootstrap_Form_Element_Label extends Bootstrap_Helper_Element {
+class Bootstrap_Form_Element_Label extends Bootstrap_Form_Helper_Elements {
 	
 	public function required()
 	{

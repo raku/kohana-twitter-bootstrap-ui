@@ -1,5 +1,11 @@
+<?php if($element->title)
+	echo HTML::anchor('#', $element->title . ' ' . Bootstrap_Dropdown_Menu::caret(), array(
+		'class' => 'dropdown-toggle',
+		'data-toggle' => 'dropdown'
+	));
+?>
 <ul<?php echo $attributes; ?>>
 	<?php foreach ($elements as $element): ?>
-	<li><?php echo $element; ?></li>
+	<?php echo $element; ?>
 	<?php endforeach; ?>
 </ul>

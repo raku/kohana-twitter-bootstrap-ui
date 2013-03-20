@@ -4,7 +4,7 @@
  * http://twitter.github.com/bootstrap/base-css.html#forms
  * @package    Twitter bootstrap/UI
  */
-class Bootstrap_Helper_Elements extends Bootstrap_Helper_Element implements Countable {
+class Bootstrap_Helper_Elements extends Bootstrap_Helper_Element implements Countable, Iterator {
 	
 	/**
 	 *
@@ -13,11 +13,32 @@ class Bootstrap_Helper_Elements extends Bootstrap_Helper_Element implements Coun
 	protected $_elements = array();
 	
 	/**
+	 *
+	 * @var integer 
+	 */
+	protected $_position = 0;
+	
+	public function __call($method, $arguments) 
+	{
+		if ( method_exists($this, $method) ) 
+		{
+			return call_user_func_array(array($this, $method), $arguments);
+        }
+		else if( $method == 'add' )
+		{
+			return call_user_func_array(array($this, '_add'), $arguments);
+		}
+		
+		throw new Bootstrap_Exception('Method :method not exists', array(
+			':method' => $method ));
+	}
+
+		/**
 	 * 
 	 * @param Bootstrap_Helper_Element $element
 	 * @param integer $priority
 	 */
-	public function add( $element, $priority = 0 )
+	protected function _add( $element, $priority = 0 )
 	{
 		if( is_string( $element ) )
 		{
@@ -35,8 +56,9 @@ class Bootstrap_Helper_Elements extends Bootstrap_Helper_Element implements Coun
 			$priority++;
 		}
 		
-		$this->_elements[$priority] = $element
-			->set_parent( $this );
+		$element->set_parent( $this );
+		
+		$this->_elements[$priority] = & $element;
 		
 		return $this;
 	}
@@ -50,7 +72,18 @@ class Bootstrap_Helper_Elements extends Bootstrap_Helper_Element implements Coun
 	{
 		return $this->add( Bootstrap::HTML('<hr />'));
 	}
-
+	
+	public function elements()
+	{
+		return $this->_elements;
+	}
+	
+	protected function _build_content() 
+	{
+		$this->_content = View::factory( $this->_template_folder . '/elements')
+			->bind('elements', $this->_elements);
+	}
+	
 	/**
 	 * 
 	 * @return integer
@@ -60,9 +93,28 @@ class Bootstrap_Helper_Elements extends Bootstrap_Helper_Element implements Coun
 		return count($this->_elements);
 	}
 	
-	protected function _build_content() 
+	public function rewind() 
 	{
-		$this->_content = View::factory( $this->_template_folder . '/elements')
-			->bind('elements', $this->_elements);
-	}
+		$this->_position = 0;
+    }
+	
+	public function current() 
+	{
+		return $this->_elements[$this->_position];
+    }
+	
+	public function key() 
+	{
+		return $this->_position;
+    }
+	
+	public function next() 
+	{
+		++$this->_position;
+    }
+	
+	public function valid() 
+	{
+		return isset($this->_elements[$this->_position]);
+    }
 }

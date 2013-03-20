@@ -4,7 +4,7 @@
  * http://twitter.github.com/bootstrap/base-css.html#forms
  * @package    Twitter bootstrap/UI
  */
-class Bootstrap_Form_Element_Textarea extends Bootstrap_Form_Helper_Element {
+class Bootstrap_Form_Element_Textarea extends Bootstrap_Form_Helper_Elements {
 	
 	protected $_template = 'form/element/textarea';
 	

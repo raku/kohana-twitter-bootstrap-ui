@@ -158,3 +158,327 @@ http://twitter.github.com/bootstrap/base-css.html#forms
 			)
 		);
 </pre>
+
+### Dropdown
+
+http://twitter.github.com/bootstrap/components.html#dropdowns
+
+<pre>
+	Bootstrap_Dropdown_Menu::factory()
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => __('Action')
+			))
+		)
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => __('Another action')
+			))
+		)
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => __('Something else here')
+			))
+		)
+		->add_divider()
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => __('Separated link')
+			))
+		);
+</pre>
+
+#### Sub menu
+
+<pre>
+	Bootstrap_Dropdown_Menu::factory()
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => __('Action')
+			))
+		)
+		->add_divider()
+		->add(
+			Bootstrap_Dropdown_Menu::factory(array(
+				'title' => __('Sub menu')
+			))
+				->add(
+					Bootstrap_Element_Button::factory(array(
+						'href' => '#', 'title' => __('Action')
+					))
+				)
+				->add(
+					Bootstrap_Element_Button::factory(array(
+						'href' => '#', 'title' => __('Another action')
+					))
+				)
+				->add_divider()
+				->add(
+					Bootstrap_Element_Button::factory(array(
+						'href' => '#', 'title' => __('Something else here')
+					))
+				)
+		);
+</pre>
+
+#### Aligning the menus
+<pre>
+	Bootstrap_Dropdown_Menu::factory()
+		->pull_left()
+		...;
+
+	Bootstrap_Dropdown_Menu::factory()
+		->pull_right()
+		...;
+</pre>
+
+### Navbar
+Для примера взяты:
+http://twitter.github.com/bootstrap/components.html#navbar
+
+#### Basic navbar
+<pre>
+	Bootstrap_Navbar::factory()
+		->add(
+			Bootstrap_Navbar::brand('Title')
+		)
+		->add(
+			Bootstrap_Nav::factory()
+			->add(Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => 'Home'
+			)), TRUE)
+
+		)
+		->add(
+			Bootstrap_Nav::factory()
+			->add(Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => 'Link'
+			)))
+
+		)
+		->add(
+			Bootstrap_Nav::factory()
+			->add(Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => 'Link'
+			)))
+
+		);
+</pre>
+
+#### Dropdown
+<pre>
+	Bootstrap_Navbar::factory()
+		->add(
+			Bootstrap_Navbar::brand('Title')
+		)
+		->add(
+			Bootstrap_Nav::factory()
+				->add(Bootstrap_Element_Button::factory(array(
+					'href' => 'test', 'title' => 'Home'
+				)), TRUE)
+				->add(
+					Bootstrap_Nav::factory()
+					->add(Bootstrap_Element_Button::factory(array(
+						'href' => '#', 'title' => 'Link'
+					)))
+				)
+				->add_divider()
+				->add(
+					Bootstrap_Dropdown_Menu::factory(array(
+						'title' => __('Dropdown')
+					))
+						->add(
+							Bootstrap_Element_Button::factory(array(
+								'href' => '#', 'title' => __('Menu-item')
+							))
+						)
+						->add_divider()
+						->add(
+							Bootstrap_Element_Button::factory(array(
+								'href' => '#', 'title' => __('Menu-item')
+							))
+						)
+				)
+
+		)
+		
+		->add(
+			Bootstrap_Nav::factory()
+				->pull_right()
+				->add_divider()
+				->add(Bootstrap_Element_Button::factory(array(
+					'href' => 'test', 'title' => 'Profile'
+				)))
+				->add(
+					Bootstrap_Nav::factory()
+					->add(Bootstrap_Element_Button::factory(array(
+						'href' => '#', 'title' => 'Logout'
+					)))
+				)
+		)
+		
+		->add(
+			Bootstrap_Form_Search::factory()
+			->pull_right()
+		);
+</pre>
+
+#### Forms
+<pre>
+	Bootstrap_Navbar::factory()
+		->add(
+			Bootstrap_Form_Inline::factory()
+			->pull_left()
+			->add(
+				Bootstrap_Form_Element_Input::factory(array(
+					'name' => 'search'
+				))
+			)
+			->add(
+				Bootstrap_Form_Element_Button::factory(array(
+					'name' => 'submit', 'title' => __('Submit') 
+				))
+			)
+		);
+</pre>
+
+#### Search form
+<pre>
+	Bootstrap_Navbar::factory()
+		->add(
+			Bootstrap_Form_Search::factory()
+		);
+</pre>
+
+#### Fixed to top
+<pre>
+	Bootstrap_Navbar::factory()
+		->fixed_top()
+		....;
+</pre>
+
+#### Fixed to bottom
+<pre>
+	Bootstrap_Navbar::factory()
+		->fixed_bottom()
+		....;
+</pre>
+
+#### Static to top
+<pre>
+	Bootstrap_Navbar::factory()
+		->static_top()
+		....;
+</pre>
+
+#### Inverted variation
+<pre>
+	Bootstrap_Navbar::factory()
+		->inverse()
+		....;
+</pre>
+
+### Nav
+
+http://twitter.github.com/bootstrap/components.html#navs
+
+#### Basic tabs
+<pre>
+	Bootstrap_Nav::factory()
+		->tabs()
+		->add(Bootstrap_Element_Button::factory(array(
+			'href' => '#', 'title' => 'Home'
+		)), TRUE)
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => 'Profile'
+			))
+		)
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => 'Messages'
+			))
+		)
+</pre>
+
+#### Basic pills
+<pre>
+	Bootstrap_Nav::factory()
+		->pills()
+		....;
+</pre>
+
+#### Component alignment
+<pre>
+	Bootstrap_Nav::factory()
+		->pull_right()
+		....;
+</pre>
+
+#### Stacked tabs
+<pre>
+	Bootstrap_Nav::factory()
+		->tabs()
+		->stacked()
+		....;
+
+	Bootstrap_Nav::factory()
+		->pills()
+		->stacked()
+		....;
+</pre>
+
+#### Tabs with dropdowns
+<pre>
+	Bootstrap_Nav::factory()
+		->tabs()
+		....
+		->add(
+			Bootstrap_Dropdown_Menu::factory(array(
+				'title' => 'Dropdown'
+			))
+			->add(
+				Bootstrap_Element_Button::factory(array(
+					'href' => '#', 'title' => __('Menu-item')
+				))
+			)
+			->add_divider()
+			->add(
+				Bootstrap_Element_Button::factory(array(
+					'href' => '#', 'title' => __('Menu-item')
+				))
+			)
+		);
+</pre>
+
+#### list
+<pre>
+	Bootstrap_Nav::factory()
+		->lists()
+		->add_header('List header')
+		->add(Bootstrap_Element_Button::factory(array(
+			'href' => '#', 'title' => 'Home'
+		)), TRUE)
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => 'Library'
+			))
+		)
+		->add_header('ANOTHER LIST HEADER')
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => 'Profile'
+			))
+		)
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => 'Settings'
+			))
+		)
+		->add_divider()
+		->add(
+			Bootstrap_Element_Button::factory(array(
+				'href' => '#', 'title' => 'Help'
+			))
+		);
+</pre>

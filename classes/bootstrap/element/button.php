@@ -4,7 +4,7 @@
  * http://twitter.github.com/bootstrap/base-css.html#forms
  * @package    Twitter bootstrap/UI
  */
-class Bootstrap_Element_Button extends Bootstrap_Helper_Element {
+class Bootstrap_Element_Button extends Bootstrap_Helper_Elements {
 	
 	const BTN		= 'btn';
 	
@@ -36,6 +36,9 @@ class Bootstrap_Element_Button extends Bootstrap_Helper_Element {
 	 */
 	const DISABLED	= 'disabled';
 	
+	protected $_template = 'element/button';
+
+
 	public function required()
 	{
 		return array('href', 'title');
@@ -126,30 +129,11 @@ class Bootstrap_Element_Button extends Bootstrap_Helper_Element {
 		
 		return $this;
 	}
-	
-	/**
-	 * 
-	 * @param Bootstrap_Helper_Element $element
-	 * @param integer $priority
-	 * @return \Bootstrap_Element_Button
-	 */
-	public function add( $element, $priority = 0 )
-	{
-		if( $element instanceof Bootstrap_Dropdown_Menu )
-		{
-			return $this->set('dropdown', $element )
-				->set_parent( $this )
-				->attributes('class', 'dropdown-toggle')
-				->attributes('data-toggle', 'dropdown');
-		}
-
-		return parent::add($element, $priority);
-	}
 
 	protected function _build_content() 
 	{
 		parent::_build_content();
-		
+
 		$this->_content = HTML::anchor($this->get('href'), 
 				$this->get('title'), $this->attributes()->as_array());
 	}

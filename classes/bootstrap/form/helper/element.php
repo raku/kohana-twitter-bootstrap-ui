@@ -4,7 +4,7 @@
  * http://twitter.github.com/bootstrap/base-css.html#forms
  * @package    Twitter bootstrap/Helper
  */
-class Bootstrap_Form_Helper_Element extends Bootstrap_Helper_Element {
+class Bootstrap_Form_Helper_Element extends Bootstrap_Helper_Elements {
 
 	/**
 	 * 

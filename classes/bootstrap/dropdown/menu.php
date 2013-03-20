@@ -44,12 +44,30 @@ class Bootstrap_Dropdown_Menu extends Bootstrap_Helper_Elements {
 	 * @param Bootstrap_Helper_Element $element
 	 * @param integer $priority
 	 */
-	public function add( $element, $priority = 0 )
+	public function add( $element, $is_active = FALSE, array $attributes = array(), $priority = 0 )
 	{
-		parent::add($element, $priority);
+		$element_li = Bootstrap_Dropdown_Element::factory(array(
+			'element' => $element
+		))
+			->attributes($attributes);
 		
-		$element->attributes()->delete('class', '^btn');
+		if($is_active !== FALSE)
+		{
+			$element_li->attributes('class', 'active');
+		}
 		
+		if( $element instanceof Bootstrap_Element_Button )
+		{
+			$element->attributes()->delete('class', '^btn');
+		}
+	
+		if( $element instanceof Bootstrap_Dropdown_Menu )
+		{
+			$element_li->attributes('class', 'dropdown-submenu');
+		}
+
+		$this->_add($element_li, $priority);
+
 		return $this;
 	}
 	
@@ -65,6 +83,8 @@ class Bootstrap_Dropdown_Menu extends Bootstrap_Helper_Elements {
 
 	protected function _build_content() 
 	{
+		parent::_build_content();
+
 		$this->_template->set('elements', $this->_elements);
 	}
 }
