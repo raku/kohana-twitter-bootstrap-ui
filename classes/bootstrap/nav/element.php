@@ -8,7 +8,7 @@ class Bootstrap_Nav_Element extends Bootstrap_Helper_Elements {
 	
 	protected function _build_content() 
 	{
-		if($this->get('element')->dropdown instanceof Bootstrap_Dropdown_Menu)
+		if($this->get('element')->dropdown instanceof Bootstrap_Dropdown)
 		{
 			$this->attributes('class', 'dropdown');
 		}

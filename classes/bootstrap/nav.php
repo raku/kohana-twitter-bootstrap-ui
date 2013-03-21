@@ -52,7 +52,7 @@ class Bootstrap_Nav extends Bootstrap_Helper_Elements {
 	
 	/**
 	 * 
-	 * @return \Bootstrap_Dropdown_Menu
+	 * @return \Bootstrap_Dropdown
 	 */
 	public function add_divider()
 	{
@@ -71,6 +71,14 @@ class Bootstrap_Nav extends Bootstrap_Helper_Elements {
 		return $this;
 	}
 
+	/**
+	 * 
+	 * @param mixed $element
+	 * @param boolean $is_active
+	 * @param array $attributes
+	 * @param integer $priority
+	 * @return \Bootstrap_Nav
+	 */
 	public function add( $element, $is_active = FALSE, array $attributes = array(), $priority = 0 )
 	{
 		$element_li = Bootstrap_Nav_Element::factory(array(
@@ -90,7 +98,7 @@ class Bootstrap_Nav extends Bootstrap_Helper_Elements {
 			$element->attributes()->delete('class', '^btn');
 		}
 		
-		if( $element instanceof Bootstrap_Dropdown_Menu )
+		if( $element instanceof Bootstrap_Dropdown )
 		{
 			$element_li->attributes('class', 'dropdown');
 		}

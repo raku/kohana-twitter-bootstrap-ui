@@ -1,7 +1,5 @@
-<ul<?php echo $attributes; ?>>
-	<div class="navbar-inner">	
-		<div class="container">
-			<?php echo $content; ?>
-		</div>
+<div<?php echo $attributes; ?>>
+	<div class="navbar-inner">
+		<?php echo $content; ?>
 	</div>
-</ul>
+</div>

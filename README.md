@@ -164,7 +164,7 @@ http://twitter.github.com/bootstrap/base-css.html#forms
 http://twitter.github.com/bootstrap/components.html#dropdowns
 
 <pre>
-	Bootstrap_Dropdown_Menu::factory()
+	Bootstrap_Dropdown::factory()
 		->add(
 			Bootstrap_Element_Button::factory(array(
 				'href' => '#', 'title' => __('Action')
@@ -191,7 +191,7 @@ http://twitter.github.com/bootstrap/components.html#dropdowns
 #### Sub menu
 
 <pre>
-	Bootstrap_Dropdown_Menu::factory()
+	Bootstrap_Dropdown::factory()
 		->add(
 			Bootstrap_Element_Button::factory(array(
 				'href' => '#', 'title' => __('Action')
@@ -199,7 +199,7 @@ http://twitter.github.com/bootstrap/components.html#dropdowns
 		)
 		->add_divider()
 		->add(
-			Bootstrap_Dropdown_Menu::factory(array(
+			Bootstrap_Dropdown::factory(array(
 				'title' => __('Sub menu')
 			))
 				->add(
@@ -223,11 +223,11 @@ http://twitter.github.com/bootstrap/components.html#dropdowns
 
 #### Aligning the menus
 <pre>
-	Bootstrap_Dropdown_Menu::factory()
+	Bootstrap_Dropdown::factory()
 		->pull_left()
 		...;
 
-	Bootstrap_Dropdown_Menu::factory()
+	Bootstrap_Dropdown::factory()
 		->pull_right()
 		...;
 </pre>
@@ -284,7 +284,7 @@ http://twitter.github.com/bootstrap/components.html#navbar
 				)
 				->add_divider()
 				->add(
-					Bootstrap_Dropdown_Menu::factory(array(
+					Bootstrap_Dropdown::factory(array(
 						'title' => __('Dropdown')
 					))
 						->add(
@@ -434,7 +434,7 @@ http://twitter.github.com/bootstrap/components.html#navs
 		->tabs()
 		....
 		->add(
-			Bootstrap_Dropdown_Menu::factory(array(
+			Bootstrap_Dropdown::factory(array(
 				'title' => 'Dropdown'
 			))
 			->add(

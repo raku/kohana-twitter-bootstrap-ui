@@ -78,9 +78,9 @@ class Bootstrap_Abstract {
 	 * @param Bootstrap_Abstract $element
 	 * @return \Bootstrap_Abstract
 	 */
-	public function set_parent( Bootstrap_Abstract & $element )
+	public function set_parent( Bootstrap_Abstract $element )
 	{
-		$this->_parent = & $element;
+		$this->_parent = $element;
 		return $this;
 	}
 	

@@ -16,13 +16,18 @@ class Bootstrap_Form_Helper_Help extends Bootstrap_Helper_Element {
 	public function default_attributes()
 	{
 		return array(
-			'class' => 'help-block'
+			'class' => Bootstrap_Form_Helper_Help::BLOCK
 		);
 	}
-	
+
 	public function required()
 	{
 		return array('text');
+	}
+	
+	public function inline()
+	{
+		return $this->attributes('class', Bootstrap_Form_Helper_Help::INLINE);
 	}
 	
 	protected function _build_content() 

@@ -14,16 +14,13 @@ class Bootstrap_Form_Helper_Element extends Bootstrap_Helper_Elements {
 	 */
 	public function help_text( $text, $inline = FALSE)
 	{
-		$attributes = array('class' => Bootstrap_Form_Helper_Help::BLOCK);
-		
-		if($inline !== FALSE)
-			$attributes = array('class' => Bootstrap_Form_Helper_Help::INLINE);
-		
 		$help_text = Bootstrap_Form_Helper_Help::factory(array(
 				'text' => $text
 			))
-			->attributes($attributes)
 			->set_parent( $this );
+		
+		if($inline !== FALSE)
+			$help_text->inline();
 		
 		return $this->set('help_text', $help_text);
 	}

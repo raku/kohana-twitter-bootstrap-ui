@@ -103,6 +103,28 @@ class Bootstrap_Helper_Attributes extends Bootstrap_Helper_Abstract {
 	 * @param string $value
 	 * @return boolean
 	 */
+	public function has($key, $value)
+	{
+		$return = FALSE;
+		
+		if( is_array($this->get($key)))
+		{
+			$return = in_array($value, $this->get($key));
+		}
+		else
+		{
+			$return = ($this->get($key) == $value);
+		}
+		
+		return $return;
+	}
+
+	/**
+	 * 
+	 * @param string $key
+	 * @param string $value
+	 * @return boolean
+	 */
 	public function delete($key, $value = NULL)
 	{
 		if( ! $this->offsetExists($key))

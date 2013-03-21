@@ -60,6 +60,11 @@ class Bootstrap_Form extends Bootstrap_Helper_Elements {
 			->set_parent( $this );
 	}
 	
+	/**
+	 * 
+	 * @param Bootstrap_Form_Element_Button $button
+	 * @return \Bootstrap_Form
+	 */
 	public function add_action( Bootstrap_Form_Element_Button $button )
 	{
 		$this->_buttons->add( $button );

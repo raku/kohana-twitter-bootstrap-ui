@@ -5,8 +5,7 @@
  * @package    Twitter bootstrap/Dropdown
  */
 class Bootstrap_Dropdown_Element extends Bootstrap_Helper_Elements {
-	
-	
+
 	protected function _build_content() 
 	{
 		$this->_content = '<li'.$this->attributes().'>' . $this->get('element') . '</li>';

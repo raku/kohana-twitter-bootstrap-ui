@@ -4,7 +4,7 @@
  * http://twitter.github.com/bootstrap/base-css.html#forms
  * @package    Twitter bootstrap/Dropdown
  */
-class Bootstrap_Dropdown_Menu extends Bootstrap_Helper_Elements {
+class Bootstrap_Dropdown extends Bootstrap_Helper_Elements {
 	
 	const DIVIDER = 'divider';
 	
@@ -18,7 +18,7 @@ class Bootstrap_Dropdown_Menu extends Bootstrap_Helper_Elements {
 	 */
 	public static function divider()
 	{
-		return '<li'.HTML::attributes(array('class' => Bootstrap_Dropdown_Menu::DIVIDER)).'></li>';
+		return '<li'.HTML::attributes(array('class' => Bootstrap_Dropdown::DIVIDER)).'></li>';
 	}
 
 	/**
@@ -61,7 +61,7 @@ class Bootstrap_Dropdown_Menu extends Bootstrap_Helper_Elements {
 			$element->attributes()->delete('class', '^btn');
 		}
 	
-		if( $element instanceof Bootstrap_Dropdown_Menu )
+		if( $element instanceof Bootstrap_Dropdown )
 		{
 			$element_li->attributes('class', 'dropdown-submenu');
 		}
@@ -73,11 +73,11 @@ class Bootstrap_Dropdown_Menu extends Bootstrap_Helper_Elements {
 	
 	/**
 	 * 
-	 * @return \Bootstrap_Dropdown_Menu
+	 * @return \Bootstrap_Dropdown
 	 */
 	public function add_divider()
 	{
-		$this->_elements[] = Bootstrap_Dropdown_Menu::divider();
+		$this->_elements[] = Bootstrap_Dropdown::divider();
 		return $this;
 	}
 

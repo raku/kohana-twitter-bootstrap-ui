@@ -4,6 +4,4 @@
  * http://twitter.github.com/bootstrap/components.html#navbar
  * @package    Twitter bootstrap/UI
  */
-class Bootstrap_Navbar_Dropdown extends Bootstrap_Dropdown_Menu {
-	
-}
+class Bootstrap_Navbar_Dropdown extends Bootstrap_Dropdown {}

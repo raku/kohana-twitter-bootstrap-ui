@@ -51,7 +51,7 @@ class Bootstrap_Form_Element_Input extends Bootstrap_Form_Helper_Elements {
 	 */
 	public static function uneditable( $text, $size = 'input-xlarge' )
 	{
-		return '<span'.HTML::attributes(array('class' => array('uneditable-input', $size))).'>' . $text . '</span>';
+		return '<span'.HTML::attributes(array('class' => 'uneditable-input ' . $size)).'>' . $text . '</span>';
 	}
 	
 	protected $_template = 'form/element/input';

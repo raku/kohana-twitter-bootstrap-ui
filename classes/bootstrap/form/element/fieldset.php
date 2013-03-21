@@ -17,7 +17,7 @@ class Bootstrap_Form_Element_Fieldset extends Bootstrap_Form_Helper_Elements {
 	{
 		parent::_build_content();
 		
-		if($this->parent() instanceof Bootstrap_Form_Horizontal )
+		if( $this->parent() instanceof Bootstrap_Form_Horizontal )
 		{
 			foreach ($this->_elements as & $element)
 			{

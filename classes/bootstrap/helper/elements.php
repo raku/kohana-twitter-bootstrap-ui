@@ -18,6 +18,13 @@ class Bootstrap_Helper_Elements extends Bootstrap_Helper_Element implements Coun
 	 */
 	protected $_position = 0;
 	
+	/**
+	 * 
+	 * @param string $method
+	 * @param array $arguments
+	 * @return mixed
+	 * @throws Bootstrap_Exception
+	 */
 	public function __call($method, $arguments) 
 	{
 		if ( method_exists($this, $method) ) 
@@ -73,6 +80,10 @@ class Bootstrap_Helper_Elements extends Bootstrap_Helper_Element implements Coun
 		return $this->add( Bootstrap::HTML('<hr />'));
 	}
 	
+	/**
+	 * 
+	 * @return array
+	 */
 	public function elements()
 	{
 		return $this->_elements;

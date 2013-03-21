@@ -58,9 +58,14 @@ class Bootstrap_Element_Button extends Bootstrap_Helper_Elements {
 	 */
 	public function icon( $icon_name )
 	{
-		$title = $this->get('title');
-		return $this->set('title', 
-			UI::icon( $icon_name ) . ' ' . $title);
+		if( ! empty($icon_name))
+		{
+			$title = $this->get('title');
+			$this->set('title', 
+				UI::icon( $icon_name ) . ' ' . $title);
+		}
+		
+		return $this;
 	}
 
 	/**

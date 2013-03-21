@@ -1,5 +1,5 @@
 <?php if($element->title)
-	echo HTML::anchor('#', $element->title . ' ' . Bootstrap_Dropdown_Menu::caret(), array(
+	echo HTML::anchor('#', $element->title . ' ' . Bootstrap_Dropdown::caret(), array(
 		'class' => 'dropdown-toggle',
 		'data-toggle' => 'dropdown'
 	));
