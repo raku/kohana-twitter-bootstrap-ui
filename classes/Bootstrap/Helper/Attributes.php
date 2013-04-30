@@ -24,10 +24,7 @@ class Bootstrap_Helper_Attributes extends Bootstrap_Helper_Abstract {
 		
 		$this->set('class', array());
 		
-		if( $this->get('id') === NULL )
-		{
-			$this->set('id', $this->generate_id());
-		}
+
 	}
 
 	/**
@@ -56,12 +53,7 @@ class Bootstrap_Helper_Attributes extends Bootstrap_Helper_Abstract {
 	{
 		return HTML::attributes($this->as_array());
 	}
-	
-	public function generate_id()
-	{
-		$class_name = strtolower( get_class($this->_object) );
-		return  $class_name . '_' . Text::random();
-	}
+
 	
 	/**
 	 * @param   string  $key    array key
@@ -83,11 +75,12 @@ class Bootstrap_Helper_Attributes extends Bootstrap_Helper_Abstract {
 			{
 				$value = explode(' ', $value);
 			}
-
+			$arra = array();
 			foreach ($value as $class)
 			{
-				$this->{$key}[] = $class;
+				$arra[] = $class;
 			}
+			$this->{$key} = $arra;
 		}
 		else
 		{
