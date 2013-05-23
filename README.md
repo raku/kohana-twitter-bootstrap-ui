@@ -353,14 +353,14 @@ http://twitter.github.com/bootstrap/components.html#navbar
 #### Fixed to top
 <pre>
 	Bootstrap_Navbar::factory()
-		->fixed_top()
+		->fix_top()
 		....;
 </pre>
 
 #### Fixed to bottom
 <pre>
 	Bootstrap_Navbar::factory()
-		->fixed_bottom()
+		->fix_bottom()
 		....;
 </pre>
 

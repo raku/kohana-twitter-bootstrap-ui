@@ -75,7 +75,7 @@ class Bootstrap_Helper_Attributes extends Bootstrap_Helper_Abstract {
 			{
 				$value = explode(' ', $value);
 			}
-			$arra = array();
+			$arra = isset($this->{$key}) ? $this->{$key} : array();
 			foreach ($value as $class)
 			{
 				$arra[] = $class;
